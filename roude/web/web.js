@@ -6,8 +6,8 @@ const express=require('express');
 module.exports=function () {
     var router=express.Router();
 
-    router.use('/',function (req,res) {
-        res.send("web 启动").end();
+    router.get('/',function (req,res, next) {
+        res.redirect('/index.html');
     });
 
     return router;

@@ -3,7 +3,7 @@
  */
 const express=require('express');
 const common=require("./../../libs/common.js");
-const logindb=require('./../../service/login/login');
+const logindb=require('./../../service/sys/user/login');
 
 module.exports=function () {
     var router=express.Router();
@@ -20,7 +20,7 @@ module.exports=function () {
                     //成功
                     req.session['admin_id'] = data[0].user_id;
                     res.status(200)
-                    res.redirect('/users/');
+                    res.send({status:"success", message:"true"});
                     return;
                 } else {
                     res.status(404).send('this passord is incorrect').end();
